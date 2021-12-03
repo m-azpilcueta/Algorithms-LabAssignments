@@ -1,0 +1,149 @@
+
+Practical 3
+Javier Escribano Salgado (javier.escribano)
+Martín Azpilcueta Rabuñal (m.azpilcueta)
+Group 6.1
+
+Introduction:
+
+The purpose of this practice is to sort an array of numbers using a heapsort algorithm. It is 
+asked to compare the performance of the algorithm depending on the array initialization. 
+
+The execution of the algorithms must be tested using a random array, an ascending ordered array 
+and a descending ordered one. 
+
+Besides, it is also asked to perform an analysis of the obtained results through
+empirical verification of the theoretical complexity.
+
+Moreover, perform an empirical check using an underestimated and overestimated
+bound for each algorithm.
+
+
+
+Time Units:
+Microseconds (μs)
+
+
+
+Machine Used:
+HP ENVY - 13-aq0001ns:
+Intel® CoreTM i5 8265U (1,6 GHz Base Frequency, max 3,9 GHz with Intel®
+Turbo Boost technology, 6 MB Cache, 4 cores)
+SDRAM DDR4-2400 (8 GB)
+SSD 512 GB PCIe® NVMeTM M.2
+Running on Elementary OS.
+
+
+
+[EXERCISE 2]
+
+Check Empirically
+Create with Random Initialization
+            n             t(n)          t(n)/n^0.8              t(n)/n          t(n)/n^1.2
+(*)       500            24.38           0.1689748           0.0487560           0.0140681
+(*)      1000            26.59           0.1058766           0.0265950           0.0066804
+(*)      2000            36.25           0.0828957           0.0181270           0.0039639
+(*)      4000            69.84           0.0917170           0.0174597           0.0033237
+(*)      8000           128.46           0.0968915           0.0160571           0.0026610
+(*)     16000           257.52           0.1115638           0.0160953           0.0023221
+        32000           599.00           0.1490414           0.0187187           0.0023510
+
+                                       Underestimated          Tight           Overestimated
+                                                           C = 0.0231155
+                                                           k = 1000
+
+Create with Ascending Initialization
+            n             t(n)          t(n)/n^0.8              t(n)/n          t(n)/n^1.2
+(*)       500             6.11           0.0423234           0.0122120           0.0035237
+(*)      1000             8.85           0.0352285           0.0088490           0.0022228
+(*)      2000            13.47           0.0307903           0.0067330           0.0014723
+(*)      4000            22.11           0.0290363           0.0055275           0.0010522
+(*)      8000            43.47           0.0327859           0.0054334           0.0009004
+(*)     16000            82.48           0.0357325           0.0051551           0.0007437
+(*)     32000           160.44           0.0399209           0.0050138           0.0006297
+
+                                       Underestimated          Tight           Overestimated
+                                                           C = 0.0069891
+                                                           k = 1000
+
+Create with Descending Initialization
+            n             t(n)          t(n)/n^0.8              t(n)/n          t(n)/n^1.2
+(*)       500             9.96           0.0690095           0.0199120           0.0057454
+(*)      1000            15.53           0.0618420           0.0155340           0.0039020
+(*)      2000            27.89           0.0637826           0.0139475           0.0030499
+(*)      4000            51.62           0.0677959           0.0129060           0.0024569
+(*)      8000           103.81           0.0782995           0.0129760           0.0021504
+(*)     16000           203.72           0.0882547           0.0127325           0.0018369
+(*)     32000           407.34           0.1013531           0.0127294           0.0015987
+
+                                       Underestimated          Tight           Overestimated
+                                                           C = 0.0143910
+                                                           k = 1000
+
+
+
+[EXERCISE 4]
+Heap Sort with random initialization
+            n             t(n)       t(n)/(n*(log(n))^0.8)  t(n)/(n*(log(n))^1)  t(n)/(n*(log(n))^1.2)
+(*)       500            15.83           0.0073396           0.0050932           0.0035343
+(*)      1000            30.09           0.0064105           0.0043554           0.0029591
+(*)      2000            53.98           0.0053272           0.0035508           0.0023668
+(*)      4000           102.41           0.0047128           0.0030869           0.0020220
+(*)      8000           205.20           0.0044278           0.0028541           0.0018397
+(*)     16000           396.04           0.0040263           0.0025570           0.0016239
+        32000           819.00           0.0039391           0.0024672           0.0015453
+
+                                       Underestimated          Tight           Overestimated
+                                                           C = 0.0034235
+                                                           k = 1000
+
+Heap Sort with ascending initialization
+            n             t(n)       t(n)/(n*(log(n))^0.8)  t(n)/(n*log(n))  t(n)/(n*(log(n))^1.2)
+(*)       500            12.43           0.0057632           0.0039993           0.0027752
+(*)      1000            19.69           0.0041952           0.0028503           0.0019365
+(*)      2000            33.47           0.0033032           0.0022017           0.0014675
+(*)      4000            59.22           0.0027250           0.0017849           0.0011691
+(*)      8000           114.48           0.0024703           0.0015923           0.0010264
+(*)     16000           223.01           0.0022673           0.0014399           0.0009144
+(*)     32000           440.42           0.0021182           0.0013267           0.0008310
+
+                                       Underestimated          Tight           Overestimated
+                                                           C = 0.0021707
+                                                           k = 1000
+
+Heap Sort with descending initialization
+            n             t(n)       t(n)/(n*(log(n))^0.8)  t(n)/(n*(log(n))^1)  t(n)/(n*(log(n))^1.2)
+(*)       500            34.96           0.0162119           0.0112499           0.0078067
+(*)      1000            76.31           0.0162607           0.0110477           0.0075059
+(*)      2000           155.08           0.0153050           0.0102014           0.0067997
+(*)      4000           329.33           0.0151553           0.0099268           0.0065022
+         8000           712.00           0.0153635           0.0099030           0.0063832
+        16000          1483.00           0.0150768           0.0095748           0.0060807
+        32000          2921.00           0.0140489           0.0087995           0.0055115
+
+                                       Underestimated          Tight           Overestimated
+                                                           C = 0.0101004
+                                                           k = 1000
+
+
+
+Conclusions:
+
+After the empirical analysis of both algorithms, we have found out some remarkable interesting facts.
+We have checked that the time complexity of the createheap algorithm is O(n). It stabilizes at around
+0.016 for the random array initialization, at around 0.005 for the ascending and 0.012 for the descending.
+When working with the best-case scenario, the ascending ordered array, the results are much faster than
+with the other two cases.
+
+For the heapsort algorithm, the time complexity is O(nlog(n)) for the three cases. It stabilizes at around 0.0024 for the random array initialization, at around 0.0013 for the ascending and 0.0087 for the descending.
+As in the createheap, when working with the best-case scenario, the ascending ordered array, the results are much faster than with the other two cases.
+
+Lower and upper bounds have been tested and set using an increment and decrement of 0.2.
+
+
+Notes:
+
+The results displayed above have been recorded after performing several executions to avoid negative
+values and any other type of potential error.
+This file has been compiled using the command:
+gcc nameofthefile.c -Wall -lm -o outputname

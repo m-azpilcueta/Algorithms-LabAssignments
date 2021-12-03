@@ -1,0 +1,69 @@
+Practical 4
+Javier Escribano Salgado (javier.escribano)
+Martín Azpilcueta Rabuñal (m.azpilcueta)
+Group 6.1
+
+Introduction:
+
+The purpose of this practice is to create a Dijkstra algorithm using C language. 
+This algorithm aims to provide the shortest path between the vertex of a graph.
+To do this, we input the graph as an adjacency matrix and we will give as output another matrix containing the smallest distances between vertex.
+
+Besides, it is also asked to perform an analysis of the obtained results through
+empirical verification of the theoretical complexity.
+
+Moreover, perform an empirical check using an underestimated and overestimated
+bound for the algorithm.
+
+We perform three tests, two of them containing both figure 2 and figure 3 from the practical PDF, and another one that uses a random initialization.
+
+
+
+Time Units:
+Microseconds (µs)
+
+
+
+Machine Used:
+HP ENVY - 13-aq0001ns:
+Intel® CoreTM i5 8265U (1,6 GHz Base Frequency, max 3,9 GHz with Intel®
+Turbo Boost technology, 6 MB Cache, 4 cores)
+SDRAM DDR4-2400 (8 GB)
+SSD 512 GB PCIe® NVMeTM M.2
+Running on Elementary OS.
+
+
+
+Time Complexity:
+
+         n             t(n)          n/t(n)^2.5         n/t(n)^2.95          n/t(n)^3.4
+(*)      8            10.15           0.0560658           0.0219942           0.0086281
+(*)     16            41.45           0.0404746           0.0116233           0.0033379
+(*)     32           277.33           0.0478766           0.0100648           0.0021159
+        64          1285.00           0.0392151           0.0060349           0.0009287
+       128          9868.00           0.0532359           0.0059974           0.0006756
+       256         76602.00           0.0730534           0.0060247           0.0004968
+       512        596386.00           0.1005432           0.0060699           0.0003664
+
+				    Underestimate	    Tight	    Overestimate
+							C = 0.0096870
+							   k = 1000
+
+
+
+Conclusions:
+
+After the empirical analysis of the algorithm, we find out that the time complexity of the algorithm is around O(n^2.95). 
+It stabilizes at around 0.006 for the given initialization in the machine above mentioned.
+
+Lower and upper bounds have been tested and set using an increment and decrement of 0.45 resulting in a complexity of 
+O(n^2.5) for the underestimated bound and O(n^3.4) for the overestimated one.
+
+
+
+Notes:
+
+The results displayed above have been recorded after performing several executions to avoid negative
+values and any other type of potential error.
+This file has been compiled using the command:
+gcc nameofthefile.c -Wall -lm -o outputname

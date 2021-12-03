@@ -1,0 +1,163 @@
+
+Practical 2
+Javier Escribano Salgado (javier.escribano)
+Martín Azpilcueta Rabuñal (m.azpilcueta)
+Group 6.1
+
+Introduction:
+
+The purpose of this practice is to sort an array of numbers using two algorithms. It is 
+asked to compare the performance between both of them. To do this, we initialize
+a random array of numbers.
+
+The execution of the algorithms must be tested using a random array, an ascending ordered array 
+and a descending ordered one. 
+
+Besides, it is also asked to perform an analysis of the obtained results through
+empirical verification of the theoretical complexity.
+
+Moreover, perform an empirical check using an underestimated and overestimated
+bound for each algorithm.
+
+
+
+
+Time Units:
+Microseconds (μs)
+
+
+
+
+Machine Used:
+HP ENVY - 13-aq0001ns:
+Intel® CoreTM i5 8265U (1,6 GHz Base Frequency, max 3,9 GHz with Intel®
+Turbo Boost technology, 6 MB Cache, 4 cores)
+SDRAM DDR4-2400 (8 GB)
+SSD 512 GB PCIe® NVMeTM M.2
+Running on Elementary OS. 
+
+
+
+Insertion Sort with random initialization
+         n             t(n)          t(n)/n^1.8            t(n)/n^2          t(n)/n^2.2
+(*)    500           158.41           0.0021961           0.0006337           0.0001828
+      1000           638.00           0.0025399           0.0006380           0.0001603
+      2000          2052.00           0.0023460           0.0005130           0.0001122
+      4000          6945.00           0.0022802           0.0004341           0.0000826
+      8000         28728.00           0.0027086           0.0004489           0.0000744
+     16000        117866.00           0.0031913           0.0004604           0.0000664
+     32000        449373.00           0.0034941           0.0004388           0.0000551
+
+                                   Underestimated           Tight           Overestimated
+                                                        C = 0.0005095
+                                                        k = 1000
+
+Insertion Sort with ascending initialization
+         n             t(n)          t(n)/n^0.8              t(n)/n          t(n)/n^1.2
+(*)    500             2.85           0.0197754           0.0057060           0.0016464
+(*)   1000             4.77           0.0189937           0.0047710           0.0011984
+(*)   2000             7.59           0.0173662           0.0037975           0.0008304
+(*)   4000            14.56           0.0191277           0.0036412           0.0006932
+(*)   8000            25.64           0.0193380           0.0032048           0.0005311
+(*)  16000            51.22           0.0221893           0.0032013           0.0004618
+(*)  32000           100.27           0.0249491           0.0031335           0.0003935
+
+                                   Underestimated           Tight           Overestimated
+                                                        C = 0.0039221
+                                                        k = 1000
+
+Insertion Sort with descending initialization
+         n             t(n)          t(n)/n^1.8            t(n)/n^2          t(n)/n^2.2
+(*)    500           287.06           0.0039795           0.0011482           0.0003313
+      1000          1205.00           0.0047972           0.0012050           0.0003027
+      2000          3566.00           0.0040769           0.0008915           0.0001949
+      4000         14521.00           0.0047675           0.0009076           0.0001728
+      8000         57510.00           0.0054223           0.0008986           0.0001489
+     16000        220315.00           0.0059652           0.0008606           0.0001242
+     32000        896970.00           0.0069744           0.0008759           0.0001100
+
+                                   Underestimated           Tight           Overestimated
+                                                        C = 0.0009696
+                                                        k = 1000
+
+Shell Sort with random initialization
+         n             t(n)       t(n)/(n*(log(n))^1.8)  t(n)/(n*(log(n))^2)  t(n)/(n*(log(n))^2.2)
+(*)    500            44.71           0.0033363           0.0023152           0.0016066
+(*)   1000           115.59           0.0035654           0.0024224           0.0016458
+(*)   2000           263.76           0.0034247           0.0022827           0.0015215
+      4000           657.00           0.0036452           0.0023877           0.0015639
+      8000          1288.00           0.0030924           0.0019933           0.0012849
+     16000          2798.00           0.0029385           0.0018661           0.0011851
+     32000          6278.00           0.0029108           0.0018231           0.0011419
+
+                                   Underestimated           Tight           Overestimated
+                                                        C = 0.0021557
+                                                        k = 1000
+
+Shell Sort with ascending initialization
+         n             t(n)       t(n)/(n*(log(n))^0.8)  t(n)/(n*log(n))  t(n)/(n*(log(n))^1.2)
+(*)    500            15.17           0.0070363           0.0048827           0.0033883
+(*)   1000            34.43           0.0073355           0.0049838           0.0033861
+(*)   2000            70.94           0.0070011           0.0046666           0.0031104
+(*)   4000           152.98           0.0070396           0.0046110           0.0030203
+(*)   8000           333.99           0.0072069           0.0046454           0.0029943
+     16000           797.00           0.0081026           0.0051457           0.0032679
+     32000          1636.00           0.0078685           0.0049284           0.0030869
+
+                                   Underestimated           Tight           Overestimated
+                                                        C = 0.0048376
+                                                        k = 1000
+
+Shell Sort with descending initialization
+         n             t(n)       t(n)/(n*(log(n))^1.8)  t(n)/(n*(log(n))^2)  t(n)/(n*(log(n))^2.2)
+(*)    500            21.41           0.0015977           0.0011087           0.0007694
+(*)   1000            41.86           0.0012912           0.0008773           0.0005960
+(*)   2000           103.27           0.0013409           0.0008937           0.0005957
+(*)   4000           225.37           0.0012504           0.0008191           0.0005365
+      8000           556.00           0.0013349           0.0008605           0.0005546
+     16000           938.00           0.0009851           0.0006256           0.0003973
+     32000          1988.00           0.0009217           0.0005773           0.0003616
+
+                                   Underestimated           Tight           Overestimated
+                                                        C = 0.0008231
+                                                        k = 1000
+
+
+
+Conclusions:
+
+After the empirical analysis of both algorithms, we have found out some remarkable differences between 
+both of them. 
+
+Regarding the insertion sort algorithm: 
+
+During our tests, we have discovered that, in general, it is slower than the shell sort algorithm. 
+The best-case scenario for this algorithm is the same one as for the shell sort. When working with the best-case 
+scenario, the ascending ordered array, the results are much faster than with the other two cases.
+
+Consequently, considering all three cases, the time complexity for the insertion sort algorithm is O(n) for 
+the best-case and O(n^2) for the other two, the random array and the descending ordered array.
+
+On the other hand, apart from the fact that both algorithms share the best-case scenario, the ascending ordered 
+array, the shell sort algorithm is faster as we can see in the execution times. 
+
+In short, the time complexity for the shell sort algorithm is O(nlog(n)) for the best-case 
+scenario, the ascending ordered array. 
+For the other two cases, random initialization and descending initialization, we have tested several complexities.
+Our final decision was to set the random initialization and descending initialization for the shell sort as O(n(log(n))^2).
+Nevertheless, we have also obtained good results using complexities between O(n) and O(n^2) for the mentioned algorithms.
+
+Lower and upper bounds have been tested and set using an increment and decrement of 0.2.
+
+
+
+
+Notes:
+
+The results displayed above have been recorded after performing several executions to avoid negative
+values and any other type of potential error.
+This file has been compiled using the command:
+gcc nameofthefile.c -Wall -lm -o outputname
+
+
+
